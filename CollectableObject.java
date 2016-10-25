@@ -1,5 +1,5 @@
 import java.util.*;
-public abstract class ACollectableObject {
+public abstract class CollectableObject {
 	Boolean collected;
 	Boolean usedCorrectly;
 	
