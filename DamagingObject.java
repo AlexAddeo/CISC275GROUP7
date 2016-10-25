@@ -1,6 +1,6 @@
 import java.util.*;
 
-public abstract class ADamagingObject {
+public abstract class DamagingObject {
 	void damage(Object o1){
 		
 	}
