@@ -1,4 +1,4 @@
-abstract class AObstacle {
+abstract class Obstacle {
 	bool beenTreated;
 
 	void removeItem() {
