@@ -7,7 +7,7 @@
 *@version 1.0
 *@since 2016-10-25
 */
-public abstract class AClickableObject{
+public abstract class ClickableObject{
 
 
 	//Checks to see if object has been clicked. 
