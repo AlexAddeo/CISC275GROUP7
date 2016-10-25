@@ -3,18 +3,6 @@ public abstract class ACharacter {
 	int xpos,ypos;
 	
 	/**
-	 * Default constructor for a character with no arguments
-	 */
-	ACharacter(){}
-	
-	/**
-	 * Constructor for a character with x and y given
-	 * @param startx starting x coordinate
-	 * @param starty starting y coordinate
-	 */
-	ACharacter(int startx, int starty){}
-	
-	/**
 	 * Moves a character given an x direction and y direction
 	 * @param xdir x direction the character is moving
 	 * @param ydir y direction the character is moving
