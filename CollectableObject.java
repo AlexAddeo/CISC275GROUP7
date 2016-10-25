@@ -1,9 +1,9 @@
 import java.util.*;
 public abstract class CollectableObject {
-	Boolean collected;
-	Boolean usedCorrectly;
+	boolean collected;
+	boolean usedCorrectly;
 	
-	void useObject(){	
+	abstract void useObject(){	
 	}
 
 }
