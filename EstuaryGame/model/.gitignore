@@ -6,3 +6,7 @@
 /DamagingObject.class
 /Obstacle.class
 /PlaceableObject.class
+/StartScreen.class
+/ButtonListener.class
+/StartButtonListener.class
+/EndScreen.class
