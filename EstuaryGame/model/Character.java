@@ -1,3 +1,4 @@
+package model;
 
 public abstract class Character {
 	int xpos,ypos;
