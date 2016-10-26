@@ -1,1 +1,5 @@
 /InteractiveObject.class
+/Character.class
+/ClickableObject.class
+/CollectableObject.class
+/FallingObject.class
