@@ -1,3 +1,5 @@
+package model;
+
 /** 
 * The ClickableObject abstract class allows objects on screen 
 * to be checked if they have been clicked, and then remvoed 
