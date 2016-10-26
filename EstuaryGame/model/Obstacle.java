@@ -6,9 +6,8 @@ public abstract class Obstacle {
 	}
 		/* remove obstacle from view, delete object */
 	
-	public void checkItem(Object o1){
+	abstract void checkItem(Object o1);
 		/* Determines if item dropped on self is correct */
-	}
 
 	abstract void damageChar();
 		/* Reduce health meter */
