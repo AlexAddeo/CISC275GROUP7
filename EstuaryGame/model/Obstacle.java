@@ -1,10 +1,12 @@
-abstract class Obstacle {
-	bool beenTreated;
+package model;
+public abstract class Obstacle {
+	boolean beenTreated;
 
-	void removeItem(); 
+	public void removeItem(){
+	}
 		/* remove ACollectableObject from view, delete object */
 	
-	abstract bool checkItem(Object o1);
+	public void checkItem(Object o1){
 		/* Determines if item dropped on self is correct */
 	}
 

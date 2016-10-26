@@ -3,3 +3,6 @@
 /ClickableObject.class
 /CollectableObject.class
 /FallingObject.class
+/DamagingObject.class
+/Obstacle.class
+/PlaceableObject.class

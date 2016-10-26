@@ -1,3 +1,4 @@
+package model;
 import java.util.*;
 
 public abstract class PlaceableObject {

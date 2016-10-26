@@ -1,3 +1,4 @@
+package model;
 /** 
 * The ClickableObject abstract class allows objects on screen 
 * to be checked if they have been clicked, and then remvoed 
@@ -22,7 +23,7 @@ public abstract class ClickableObject{
 	*@param None used.
 	*@return None.
 	*/
-	public abstract void removeFromScreen(){
+	public void removeFromScreen(){
 
 		//removes the clicked object from the screen.
 	}
