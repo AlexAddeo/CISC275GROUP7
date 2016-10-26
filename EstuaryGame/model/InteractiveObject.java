@@ -6,8 +6,9 @@ public abstract class InteractiveObject {
 	private int ypos;
 	private boolean hasCollided = false;
 	
-	public void move(){
-		
+	public void move(int x, int y){
+		xpos = x;
+		ypos = y;
 	}
 	
 }
