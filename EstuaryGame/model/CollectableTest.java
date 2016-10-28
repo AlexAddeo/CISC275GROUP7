@@ -8,15 +8,15 @@ public class CollectableTest {
 
 	@Test
 	public void removeCollectableTest() {
-		CollectableObjcet collectableP = this;
-		this.removeCollectable();
+		CollectableObjcet collectableP = new CollectableObject;
+		collectableP.removeCollectable();
 		assertEquals("Collectable Pointer should be null when removed", null, collectableP);
 	}
 
 	@Test
 	public void UseCollectableTest() {
-		CollectableObjcet collectableP = this;
-		this.useObject();
+		CollectableObjcet collectableP = new CollectableObject;
+		collectableP.useObject();
 		assertEquals("Collectable Pointer should be null when used", null, collectableP);
 		
 	}
