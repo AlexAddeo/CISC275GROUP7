@@ -1,0 +1,51 @@
+package main;
+
+public class HorshoeCrab extends InteractiveObject{
+	
+	private boolean caughtItem = false;
+	
+	private int oysterBin = 0;
+	private int trashBin = 0;
+	private int recycleBin = 0;
+	private int health = 100;
+	private boolean havePowerUp = false;
+	private boolean powerUp = false;
+	public FallingObject caughtObject;
+	
+	public void move(){
+		
+	}
+	
+	public void catchItem(FallingObject o){
+		o.caught = true;
+		this.caughtObject = o;
+	}
+	
+	public void throwItem(FallingObject o){
+		o.caught = true;
+		switch(o.getType()){
+		case Algae: powerUp = true;
+		break;
+		case Oyster: oysterBin++;
+		break;
+		case Bottle: recycleBin++;
+		break;
+		case Fish: //error;
+		break;
+		case Trash: trashBin++;
+		break;
+	}
+	
+}
+	public int getOysterCount(){
+		return this.oysterBin;
+	}
+	
+	public int getRecycleCount(){
+		return this.recycleBin;
+	}
+	
+	public int getTrashCount(){
+		return this.trashBin;
+	}
+}
