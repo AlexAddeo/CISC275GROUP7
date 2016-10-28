@@ -5,13 +5,16 @@ import java.math.*;
 import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
-import model.Character;
+import java.util.Observable;		//for update();
+import java.awt.event.ActionListener;	//for addController()
 
-public class View extends JFrame {
+public class View extends JFrame implements java.util.Observer{
 private static final long serialVersionUID = 1L;
 
 	
 	DrawPanel drawPanel = new DrawPanel();
+	int collectablePos;
+	Model3 model;
 	
 	//private Character player = new Character(getWidth()-375, getHeight()/2);
 //	private boolean buttonPressed = false;
@@ -67,6 +70,7 @@ private static final long serialVersionUID = 1L;
 	/**
 	 * 
 	 */
+	
 	public View(){
 //		JButton b3 = new JButton("CLOSE");
 //
@@ -113,6 +117,12 @@ private static final long serialVersionUID = 1L;
 		//startGradient(); //please
 	}
 	
+	public void update(Observable obs, Object obj){
+		System.out.println(collectablePos);
+		collectablePos = model.sendPos();
+		drawPanel.repaint();
+	}
+	
 	public void startGradient(){
 		while(active){
 			//squareColorIndex++;
@@ -132,6 +142,7 @@ private static final long serialVersionUID = 1L;
 			g.fillOval(getWidth()-375, getHeight()/2, 50, 35);
 			g.setColor(Color.black);
 			g.fillRect(getWidth()-375, getHeight()-50, getWidth(), 5);
+			g.fillRect(collectablePos, getHeight()/2, 45, 45);
 			
 		}
 		public Dimension getPreferredSize() {
@@ -140,6 +151,10 @@ private static final long serialVersionUID = 1L;
 		
 	}
 	
+	
+	public void addModel(Model3 mod){
+		this.model = mod;
+	}
 	
 //	/**Start Button */
 //	class ButtonFrame extends JFrame
@@ -160,12 +175,12 @@ private static final long serialVersionUID = 1L;
 
 	
 	
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable(){
-			public void run(){
-				new View();
-			}
-		});
-	}
+//	public static void main(String[] args) {
+//		EventQueue.invokeLater(new Runnable(){
+//			public void run(){
+//				new View();
+//			}
+//		});
+//	}
 	
 }
