@@ -14,9 +14,9 @@ public class DeadSoilTest{
 		boolean trashCheck = dead.checkItem(trashb);
 		boolean hayCheck = dead.checkItem(hay);
 		boolean seedCheck = dead.checkItem(seed);
-        assertEquals("Dead soil should only accept compost and checkItem should return true", true, compCheck);
-        assertEquals("Dead soil can't accept trashbags, should return false", false, trashCheck);
-        assertEquals("Dead soil can't accept hay, should return false", false, trashCheck);
-        assertEquals("Dead soil can't accept seeds, should return false", false, trashCheck);
+       	 	assertEquals("Dead soil should only accept compost and checkItem should return true", true, compCheck);
+        	assertEquals("Dead soil can't accept trashbags, should return false", false, trashCheck);
+        	assertEquals("Dead soil can't accept hay, should return false", false, trashCheck);
+        	assertEquals("Dead soil can't accept seeds, should return false", false, trashCheck);
 	}
 }
