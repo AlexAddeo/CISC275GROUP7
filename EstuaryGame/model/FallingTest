@@ -1,0 +1,54 @@
+package main;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class FallingObjectTest {
+
+	//still need to implement methods
+	
+	private HorshoeCrab h = new HorshoeCrab();
+	private FallingObject oyster = new FallingObject(FallType.Oyster);
+	private FallingObject fish = new FallingObject(FallType.Fish);
+	private FallingObject bottle = new FallingObject(FallType.Bottle);
+	private FallingObject trash = new FallingObject(FallType.Trash);
+	private FallingObject algae = new FallingObject(FallType.Algae);
+	
+	//using hypothetical 400x400 grid size
+	@Test
+	public void fallTest() {
+		int expected_y = 395;
+		oyster.fall();
+		assertEquals("y position should decrease by 5", expected_y, oyster.ypos);
+		
+	}
+
+	@Test
+	public void bottomTest(){
+		for(int i = 0; i <= 80; i++){
+			bottle.fall();
+		}
+		assertEquals("bottle should now be at bottom", true, bottle.bottom);
+	
+		trash.fall();
+		assertEquals("trash should not be at bottom", false, trash.bottom);
+		
+		//fish should keep swimming
+		for(int i = 0; i <=85; i++){
+			fish.fall();
+		}
+		assertEquals("fish should still be falling", true, fish.falling);
+		
+	}
+	
+	@Test
+	public void caughtTest(){
+		h.catchItem(algae);
+		assertEquals("algae should be caught", true, algae.caught);
+		
+		assertEquals("bottle should not be caught", false, bottle.caught);
+	}
+	
+
+}
