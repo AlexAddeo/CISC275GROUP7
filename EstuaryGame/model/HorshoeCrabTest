@@ -1,0 +1,40 @@
+package main;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class HorshoeCrabTest {
+
+	private HorshoeCrab h = new HorshoeCrab();
+	private FallingObject oyster = new FallingObject(FallType.Oyster);
+	private FallingObject fish = new FallingObject(FallType.Fish);
+	private FallingObject bottle = new FallingObject(FallType.Bottle);
+	private FallingObject trash = new FallingObject(FallType.Trash);
+	private FallingObject algae = new FallingObject(FallType.Algae);
+	
+	@Test
+	public void moveTest(){
+		//how to write test for keyboard inputs???
+	}
+	
+	@Test
+	public void catchTest() {
+		h.catchItem(trash);
+		assertEquals("caughtItem should be trash", FallType.Trash, h.caughtObject.getType());
+	}
+	
+	@Test
+	public void throwTest() {
+		//need to test correct choice of bin with keyboard input
+		h.throwItem(oyster);
+		int expected_oysterCount = 1;
+		assertEquals("oysterbin count should increment by one", expected_oysterCount, h.getOysterCount());
+		
+		h.throwItem(bottle);
+		int expected_trashCount = 0;
+		assertEquals("trashCount should not increment if a bottle is caught", expected_trashCount, h.getTrashCount());
+	}
+	
+
+}
