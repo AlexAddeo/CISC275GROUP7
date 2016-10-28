@@ -5,13 +5,33 @@ import java.math.*;
 import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
-import model.Character;
+import java.util.Observable;		//for update();
+import java.awt.event.ActionListener;	//for addController()
 
-public class View extends JFrame {
+public class View extends JFrame implements java.util.Observer{
 private static final long serialVersionUID = 1L;
 
 	
 	DrawPanel drawPanel = new DrawPanel();
+	int characterPos = getWidth()+10;
+	Color interColor;
+	int colorNum;
+	int interPos;
+	Model3 model;
+	boolean removeFromScreen = false;
+	int trashbCnt, compCnt, seedCnt, hayCnt = 0;
+	boolean isColl = false;
+	boolean isObst = false;
+	int interType;
+	
+//	this.getContentPane().setLayout(new FlowLayout());
+//    JLabel label = new JLabel("Trashbag = ", trashbCnt);
+//    label.setFont(new Font("Serif", Font.PLAIN, 36));
+//    this.getContentPane().add(label);
+//    setSize(230, 230);  //  or whatever size you want
+//    //  Place Frame in middle of Screen
+//    setLocationRelativeTo(null);  
+//    setVisible(true);
 	
 	//private Character player = new Character(getWidth()-375, getHeight()/2);
 //	private boolean buttonPressed = false;
@@ -67,6 +87,7 @@ private static final long serialVersionUID = 1L;
 	/**
 	 * 
 	 */
+	
 	public View(){
 //		JButton b3 = new JButton("CLOSE");
 //
@@ -113,6 +134,37 @@ private static final long serialVersionUID = 1L;
 		//startGradient(); //please
 	}
 	
+	public void update(Observable obs, Object obj){
+		//System.out.println(collectablePos);
+		interType = model.sendInter();
+		if (interType == 0){
+			interPos = model.sendPosC();
+			isColl = true;
+		}
+		else{
+			interPos = model.sendPosO();
+			isObst = true;
+		}
+		colorNum = model.sendColor();
+		if(colorNum == 0){
+			interColor = Color.black;
+		}
+		else if(colorNum == 1){
+			interColor = Color.yellow;
+		}
+		else if(colorNum == 2){
+			interColor = Color.green;
+		}
+		else{
+			interColor = Color.red;
+		}
+		if(interPos == characterPos){
+			removeFromScreen = true;
+		}
+		drawPanel.repaint();
+		removeFromScreen = false;
+	}
+	
 	public void startGradient(){
 		while(active){
 			//squareColorIndex++;
@@ -129,9 +181,19 @@ private static final long serialVersionUID = 1L;
 			g.setColor(Color.white);
 			g.fillRect(0, 0, getWidth(), getHeight());
 			g.setColor(Color.blue);
-			g.fillOval(getWidth()-375, getHeight()/2, 50, 35);
+			g.fillOval(characterPos, getHeight()/2, 50, 35);
 			g.setColor(Color.black);
-			g.fillRect(getWidth()-375, getHeight()-50, getWidth(), 5);
+			g.fillRect(getWidth(), getHeight()-50, getWidth(), 5);
+			if(removeFromScreen == false && isColl == true){
+				g.setColor(interColor);
+				g.fillRect(interPos, getHeight()/2, 35, 35);
+				isColl = false;
+			}
+			if(removeFromScreen == false && isObst == true){
+				g.setColor(interColor);
+				g.fillArc(interPos, getHeight()/2, 45, 45, 0, 180);
+				isObst = false;
+			}
 			
 		}
 		public Dimension getPreferredSize() {
@@ -140,6 +202,10 @@ private static final long serialVersionUID = 1L;
 		
 	}
 	
+	
+	public void addModel(Model3 mod){
+		this.model = mod;
+	}
 	
 //	/**Start Button */
 //	class ButtonFrame extends JFrame
@@ -160,12 +226,12 @@ private static final long serialVersionUID = 1L;
 
 	
 	
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable(){
-			public void run(){
-				new View();
-			}
-		});
-	}
+//	public static void main(String[] args) {
+//		EventQueue.invokeLater(new Runnable(){
+//			public void run(){
+//				new View();
+//			}
+//		});
+//	}
 	
 }

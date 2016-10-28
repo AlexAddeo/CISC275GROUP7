@@ -1,9 +1,22 @@
+package model;
 import java.util.*;
-public abstract class CollectableObject {
+public class CollectableObject extends InteractiveObject {
 	boolean collected;
-	boolean usedCorrectly;
+	//boolean usedCorrectly;
+	public CollectableObject(){
+		this.xpos = 0;
+		this.ypos = 0;
+	}
 	
-	abstract void useObject(){	
+	public CollectableObject(int xpos, int ypos){
+		this.xpos = xpos;
+		this.ypos = ypos;
+	}
+	public void useObject(){
+		collected = false;
+		Integer integer = (Integer)null;
+		this.xpos = integer;
+		this.ypos = integer;
 	}
 
 }
