@@ -18,7 +18,7 @@ public class GameMeter {
 	//We don't need a function to decrease health. Just give this a negative number.
 	public void increasehealth(int amt){
 		health += amt;
-		if (health == 0) dead = true;
+		if (health <= 0) dead = true;
 	}
 	
 	public int gethealth(){
