@@ -18,5 +18,9 @@ public class CollectableObject extends InteractiveObject {
 		this.xpos = integer;
 		this.ypos = integer;
 	}
+	
+	public void changePosC() {
+		this.xpos -= 1;
+	}
 
 }

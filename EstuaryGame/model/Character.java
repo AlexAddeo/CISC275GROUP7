@@ -6,14 +6,16 @@ public abstract class Character {
 	/**
 	 * Default constructor for a character with no arguments
 	 */
-	Character(){}
 	
 	/**
 	 * Constructor for a character with x and y given
 	 * @param startx starting x coordinate
 	 * @param starty starting y coordinate
 	 */
-	Character(int startx, int starty){}
+	Character(int startx, int starty){
+		this.xpos = startx;
+		this.ypos = starty;
+	}
 	
 	/**
 	 * Moves a character given an x direction and y direction

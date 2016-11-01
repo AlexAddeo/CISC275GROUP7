@@ -1,13 +1,15 @@
 package model;
 
-public class Controller3 implements java.awt.event.ActionListener{
+import java.awt.event.ActionEvent;
+import java.awt.event.KeyEvent;
+import javax.swing.Action;
+import javax.swing.AbstractAction;
+
+public class Controller3 {
 	Model3 model;
 	View view;
-	
-	public void actionPerformed(java.awt.event.ActionEvent e){
-		System.out.println("Controller: acting on Model");
-		model.changePosC();
-	} 
+
+	int obst;
 	
 	public void addModel(Model3 m){
 		this.model = m;
@@ -18,7 +20,8 @@ public class Controller3 implements java.awt.event.ActionListener{
 	}  
 	
 	public void initModel(int x){
-		model.setPosC(x);
+		model.initC(x);
 		model.setPosO(x);
+		model.run();
 	} 
 }

@@ -12,5 +12,8 @@ public abstract class Obstacle extends InteractiveObject{
 
 	//abstract void damageChar();
 	/* Reduce health meter */
+	public void changePosO() {
+		this.xpos -= 1;
+	}
 
 }
